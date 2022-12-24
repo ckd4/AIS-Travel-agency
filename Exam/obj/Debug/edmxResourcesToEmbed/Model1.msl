@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ExamDBModelContainer" CdmEntityContainer="ExamDBEntities1">
+    <EntitySetMapping Name="places">
+      <EntityTypeMapping TypeName="ExamDBModel.places">
+        <MappingFragment StoreEntitySet="places">
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="hotel" ColumnName="hotel" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="ExamDBModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
