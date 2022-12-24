@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Exam.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Authorization.xaml
-    /// </summary>
     public partial class Authorization : Page
     {
         public Authorization()
