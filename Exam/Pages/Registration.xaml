@@ -1,0 +1,109 @@
+﻿<Page x:Class="Exam.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Exam.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Registration">
+
+    <Page.Resources>
+        <Style x:Key="AuthStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#FFFF"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bahnschrift"/>
+            <EventSetter Event="TextChanged" Handler="TBTextChanged"/>
+            <!--Скругление Кнопок-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border BorderThickness="0"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--Trigger при наведении-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#AFAFAF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--Style for PB-->
+        <Style x:Key="AuthStylePB" TargetType="PasswordBox">
+            <Setter Property="Background" Value="#FFFF"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bahnschrift"/>
+            <EventSetter Event="PasswordChanged" Handler="PBPasswordChanged"/>
+            <!--Скругление Кнопок-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border BorderThickness="0"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--Trigger when mouse over-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#AFAFAF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="20" Grid.Row="1" Grid.Column="1" Background="Black">
+            <StackPanel>
+                <TextBlock Margin="10 30 10 0" Text="Регистрация" HorizontalAlignment="Center" FontSize="35" Foreground="White" FontFamily="Bahnschrift"/>
+
+                <Grid>
+                    <TextBox x:Name="TBNicknameReg" Style="{DynamicResource AuthStyle}"  Margin="40 10 40 0"/>
+                    <TextBlock x:Name="TBLogin" Foreground="#FF808080" Margin="50 10 50 0" IsHitTestVisible="False"
+                         VerticalAlignment="Center" FontSize="20" FontFamily="Bahnschrift" Text="Login"/>
+                </Grid>
+
+                <Grid>
+                    <PasswordBox VerticalAlignment="Center" x:Name="PBPassword1" Style="{DynamicResource AuthStylePB}" Margin="40 20 40 0"/>
+                    <TextBlock x:Name="TBPassword1" Foreground="#FF808080" Margin="50 20 50 0" IsHitTestVisible="False"
+                                   VerticalAlignment="Center" FontSize="20" FontFamily="Bahnschrift" 
+                                    Text="Password"/>
+                </Grid>
+                <Grid>
+                    <PasswordBox VerticalAlignment="Center" x:Name="PBPassword2" Style="{DynamicResource AuthStylePB}" Margin="40 20 40 0"/>
+                    <TextBlock x:Name="TBPassword2" Foreground="#FF808080" Margin="50 20 50 0" IsHitTestVisible="False"
+                                   VerticalAlignment="Center" FontSize="20" FontFamily="Bahnschrift" 
+                                    Text="Repeat password"/>
+                </Grid>
+
+                <Button x:Name="BTNRegistration" Margin="60 20 60 0" Style="{DynamicResource RoundedButton}" Content="Sign up" Click="BTNRegistration_Click"/>
+
+                <Button x:Name="BTNAuth" Margin="60 20 60 0" Style="{DynamicResource RoundedButton}" Content="Back to Log in" Click="BTNAuth_Click"/>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
